@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "early_features_testmod",
+  "version": "${version}",
+  "name": "Early Features Testmod",
+  "description": "",
+  "authors": ["Will BL"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.williambl.early_features.test.EarlyFeaturesTest"
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.2"
+  }
+}
