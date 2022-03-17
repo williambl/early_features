@@ -9,6 +9,9 @@
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
+    "client": [
+      "com.williambl.early_features.impl.EarlyFeatures"
+    ]
   },
   "mixins": [
     "early_features.mixins.json"
