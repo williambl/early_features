@@ -14,14 +14,15 @@ import org.jetbrains.annotations.ApiStatus;
  * @param <M> the LivingEntity's model class
  */
 @ApiStatus.NonExtendable
-@FunctionalInterface
 @Environment(EnvType.CLIENT)
-public interface EarlyFeatureAdder<T extends LivingEntity, M extends EntityModel<T>> {
+public interface EarlyFeatureAdder {
     /**
      * Adds an early-rendering feature.
      *
      * @param feature the feature to add
      * @return whether the feature was added
      */
-    boolean addEarlyFeature(FeatureRenderer<T, M> feature);
+    default boolean addEarlyFeature(FeatureRenderer<?, ?> feature) {
+        return false;
+    }
 }

@@ -20,16 +20,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(LivingEntityRenderer.class)
-public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> extends EntityRenderer<T> implements EarlyFeatureAdder<T, M> {
+public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> extends EntityRenderer<T> implements EarlyFeatureAdder {
     protected final List<FeatureRenderer<T, M>> earlyFeatures = new ArrayList<>();
 
     protected LivingEntityRendererMixin(EntityRendererFactory.Context ctx) {
         super(ctx);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public boolean addEarlyFeature(FeatureRenderer<T, M> feature) {
-        return this.earlyFeatures.add(feature);
+    public boolean addEarlyFeature(FeatureRenderer<?, ?> feature) {
+        return this.earlyFeatures.add((FeatureRenderer<T, M>) feature);
     }
 
     @Inject(
